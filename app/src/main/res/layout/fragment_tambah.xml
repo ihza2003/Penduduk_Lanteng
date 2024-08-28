@@ -264,15 +264,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/InputPekerjaan" />
 
-            <EditText
+<!--            <EditText-->
+<!--                android:id="@+id/InputRT"-->
+<!--                android:layout_width="320dp"-->
+<!--                android:layout_height="59dp"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:background="@drawable/rounded_bg"-->
+<!--                android:ems="10"-->
+<!--                android:hint="Masukkan RT"-->
+<!--                android:inputType="number"-->
+<!--                android:padding="10dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.509"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/JdlRT" />-->
+
+            <Spinner
                 android:id="@+id/InputRT"
                 android:layout_width="320dp"
                 android:layout_height="59dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/rounded_bg"
-                android:ems="10"
-                android:hint="Masukkan RT"
-                android:inputType="number"
                 android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
@@ -291,20 +303,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/InputRT" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/InputStatus"
                 android:layout_width="320dp"
                 android:layout_height="59dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/rounded_bg"
-                android:ems="10"
-                android:hint="Masukkan RT"
-                android:inputType="number"
                 android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/JdlStatus" />
+
 
             <Button
                 android:id="@+id/tambah"

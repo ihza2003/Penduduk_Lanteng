@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import com.example.penduduk_lanteng.R
 import com.example.penduduk_lanteng.databinding.FragmentTambahBinding
 import java.util.Calendar
@@ -32,7 +33,7 @@ class TambahFragment : Fragment() {
         val calendar = Calendar.getInstance()
 
         // Set onClickListener pada EditText
-        binding.InputTgl.setOnClickListener {
+        binding.imageButton.setOnClickListener {
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
@@ -50,6 +51,22 @@ class TambahFragment : Fragment() {
             // Tampilkan DatePickerDialog
             datePickerDialog.show()
         }
+        // Inisialisasi Spinner
+        val statusAdapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.status_options,
+            android.R.layout.simple_spinner_item
+        )
+        statusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.InputStatus.adapter = statusAdapter
+
+        val rtAdapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.rt_options,
+            android.R.layout.simple_spinner_item
+        )
+        rtAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.InputRT.adapter = rtAdapter
     }
 
     override fun onDestroyView() {
