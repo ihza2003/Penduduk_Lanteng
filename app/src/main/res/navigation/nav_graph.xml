@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/navigationParentFragment"
+        android:name="com.example.penduduk_lanteng.layanan.NavigationParentFragment"
+        android:label="fragment_navigation_parent"
+        tools:layout="@layout/fragment_navigation_parent" >
+        <action
+            android:id="@+id/action_navigationParentFragment_to_tambahFragment"
+            app:destination="@id/tambahFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.penduduk_lanteng.Splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_navigationParentFragment2"
+            app:destination="@id/navigationParentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tambahFragment"
+        android:name="com.example.penduduk_lanteng.layanan.TambahFragment"
+        android:label="fragment_tambah"
+        tools:layout="@layout/fragment_tambah" />
+</navigation>
