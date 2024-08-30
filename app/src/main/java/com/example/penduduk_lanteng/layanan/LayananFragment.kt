@@ -26,6 +26,10 @@ class LayananFragment : Fragment() {
         binding.people.setOnClickListener {
             findNavController().navigate(R.id.action_navigationParentFragment_to_tambahFragment)
         }
+
+        binding.people1.setOnClickListener {
+            findNavController().navigate(R.id.action_navigationParentFragment_to_lihatFragment)
+        }
         return binding.root
     }
 

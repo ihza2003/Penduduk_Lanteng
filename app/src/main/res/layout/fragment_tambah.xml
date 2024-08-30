@@ -41,9 +41,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <!-- Ubah semua elemen agar tidak memiliki app:layout_constraintBottom_toBottomOf="parent" -->
-
             <TextView
                 android:id="@+id/Judul"
                 android:layout_width="wrap_content"
@@ -263,21 +261,6 @@
                 app:layout_constraintHorizontal_bias="0.085"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/InputPekerjaan" />
-
-<!--            <EditText-->
-<!--                android:id="@+id/InputRT"-->
-<!--                android:layout_width="320dp"-->
-<!--                android:layout_height="59dp"-->
-<!--                android:layout_marginTop="12dp"-->
-<!--                android:background="@drawable/rounded_bg"-->
-<!--                android:ems="10"-->
-<!--                android:hint="Masukkan RT"-->
-<!--                android:inputType="number"-->
-<!--                android:padding="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.509"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/JdlRT" />-->
 
             <Spinner
                 android:id="@+id/InputRT"

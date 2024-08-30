@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_navigationParentFragment_to_tambahFragment"
             app:destination="@id/tambahFragment" />
+        <action
+            android:id="@+id/action_navigationParentFragment_to_lihatFragment"
+            app:destination="@id/lihatFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -27,4 +30,9 @@
         android:name="com.example.penduduk_lanteng.layanan.TambahFragment"
         android:label="fragment_tambah"
         tools:layout="@layout/fragment_tambah" />
+    <fragment
+        android:id="@+id/lihatFragment"
+        android:name="com.example.penduduk_lanteng.layanan.LihatFragment"
+        android:label="fragment_lihat"
+        tools:layout="@layout/fragment_lihat" />
 </navigation>
