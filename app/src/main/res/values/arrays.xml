@@ -16,4 +16,18 @@
 
     </string-array>
 
+    <string-array name="kelamin_options">
+        <item>Pilih Kelamin</item>
+        <item>Laki-Laki</item>
+        <item>Perempuan</item>
+
+    </string-array>
+
+    <string-array name="hidup_options">
+        <item>Status Hidup</item>
+        <item>Hidup</item>
+        <item>Meninggal</item>
+
+    </string-array>
+
 </resources>

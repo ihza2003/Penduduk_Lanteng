@@ -36,7 +36,9 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_header">
+        app:layout_constraintTop_toBottomOf="@id/home_header"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -251,6 +253,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/JdlPekerjaan" />
 
             <TextView
+                android:id="@+id/JdlKelamin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Kelamin"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/InputPekerjaan" />
+
+            <Spinner
+                android:id="@+id/InputKelamin"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlKelamin" />
+
+            <TextView
                 android:id="@+id/JdlRT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -260,7 +286,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.085"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/InputPekerjaan" />
+                app:layout_constraintTop_toBottomOf="@+id/InputKelamin" />
 
             <Spinner
                 android:id="@+id/InputRT"
@@ -298,6 +324,30 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/JdlStatus" />
 
+            <TextView
+                android:id="@+id/JdlHidup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Status Hidup"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/InputStatus" />
+
+            <Spinner
+                android:id="@+id/InputHidup"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlHidup" />
+
 
             <Button
                 android:id="@+id/tambah"
@@ -305,13 +355,13 @@
                 android:layout_height="55dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="28dp"
-                android:text="Tambahkan"
                 android:backgroundTint="#4F6F52"
+                android:text="Tambahkan"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/InputStatus" />
+                app:layout_constraintTop_toBottomOf="@+id/InputHidup" />
 
 
             <RelativeLayout
