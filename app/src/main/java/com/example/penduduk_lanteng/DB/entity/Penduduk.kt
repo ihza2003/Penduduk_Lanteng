@@ -1,9 +1,12 @@
 package com.example.penduduk_lanteng.DB.entity
-
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
+
 
 @Entity(tableName = "Penduduk")
+@Parcelize
 data class Penduduk(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val nama : String,
@@ -18,4 +21,4 @@ data class Penduduk(
     val status: String,
     val hidup : String
 
-)
+) : Parcelable

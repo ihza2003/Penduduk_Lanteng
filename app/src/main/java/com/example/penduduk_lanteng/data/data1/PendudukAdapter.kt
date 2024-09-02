@@ -6,10 +6,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.penduduk_lanteng.DB.entity.Penduduk
 import com.example.penduduk_lanteng.databinding.ItemHomeBinding
 
-class PendudukAdapter(private var pendudukList: List<Penduduk>) :
-    RecyclerView.Adapter<PendudukAdapter.PendudukViewHolder>() {
+class PendudukAdapter(
+    private var pendudukList: List<Penduduk>,
+    private val itemClickListener: OnItemClickListener
+) : RecyclerView.Adapter<PendudukAdapter.PendudukViewHolder>() {
 
-    class PendudukViewHolder(private val binding: ItemHomeBinding) :
+    interface OnItemClickListener {
+        fun onItemClick(penduduk: Penduduk)
+    }
+
+    inner class PendudukViewHolder(private val binding: ItemHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(penduduk: Penduduk) {
@@ -18,6 +24,11 @@ class PendudukAdapter(private var pendudukList: List<Penduduk>) :
             binding.kelamin.text = penduduk.kelamin
             binding.alias.text = penduduk.alias
             binding.hidup.text = penduduk.hidup
+
+            // Set onClickListener pada itemView
+            binding.root.setOnClickListener {
+                itemClickListener.onItemClick(penduduk)
+            }
         }
     }
 
@@ -39,3 +50,4 @@ class PendudukAdapter(private var pendudukList: List<Penduduk>) :
         notifyDataSetChanged()
     }
 }
+

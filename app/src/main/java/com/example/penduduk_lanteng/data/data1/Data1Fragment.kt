@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.penduduk_lanteng.DB.AppDatabase
+import com.example.penduduk_lanteng.DB.entity.Penduduk
 import com.example.penduduk_lanteng.DB.repository.PendudukRepository
+import com.example.penduduk_lanteng.R
 import com.example.penduduk_lanteng.databinding.FragmentData1Binding
 
-class Data1Fragment : Fragment() {
+class Data1Fragment : Fragment(), PendudukAdapter.OnItemClickListener {
 
     private var _binding: FragmentData1Binding? = null
     private val binding get() = _binding!!
@@ -26,7 +29,7 @@ class Data1Fragment : Fragment() {
         _binding = FragmentData1Binding.inflate(inflater, container, false)
 
         // Inisialisasi RecyclerView dan Adapter
-        adapter = PendudukAdapter(emptyList())
+        adapter = PendudukAdapter(emptyList(), this)
         binding.listRt1.layoutManager = LinearLayoutManager(context)
         binding.listRt1.adapter = adapter
 
@@ -45,8 +48,16 @@ class Data1Fragment : Fragment() {
         return binding.root
     }
 
+    override fun onItemClick(penduduk: Penduduk) {
+        val bundle = Bundle().apply {
+            putParcelable("penduduk_data", penduduk)
+        }
+        findNavController().navigate(R.id.action_data1Fragment_to_detail1Fragment, bundle)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 }
+

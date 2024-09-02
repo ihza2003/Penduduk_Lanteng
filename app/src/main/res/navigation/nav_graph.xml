@@ -52,20 +52,41 @@
         android:id="@+id/data1Fragment"
         android:name="com.example.penduduk_lanteng.data.data1.Data1Fragment"
         android:label="fragment_data1"
-        tools:layout="@layout/fragment_data1" />
+        tools:layout="@layout/fragment_data1" >
+        <action
+            android:id="@+id/action_data1Fragment_to_detail1Fragment"
+            app:destination="@id/detail1Fragment" />
+    </fragment>
     <fragment
         android:id="@+id/data2Fragment"
         android:name="com.example.penduduk_lanteng.data.data2.Data2Fragment"
         android:label="fragment_data2"
-        tools:layout="@layout/fragment_data2" />
+        tools:layout="@layout/fragment_data1" >
+        <action
+            android:id="@+id/action_data2Fragment_to_detail1Fragment2"
+            app:destination="@id/detail1Fragment" />
+    </fragment>
     <fragment
         android:id="@+id/data3Fragment"
         android:name="com.example.penduduk_lanteng.data.data3.Data3Fragment"
         android:label="fragment_data3"
-        tools:layout="@layout/fragment_data3" />
+        tools:layout="@layout/fragment_data3" >
+        <action
+            android:id="@+id/action_data3Fragment_to_detail1Fragment2"
+            app:destination="@id/detail1Fragment" />
+    </fragment>
     <fragment
         android:id="@+id/data4Fragment"
         android:name="com.example.penduduk_lanteng.data.data4.Data4Fragment"
         android:label="fragment_data4"
-        tools:layout="@layout/fragment_data4" />
+        tools:layout="@layout/fragment_data4" >
+        <action
+            android:id="@+id/action_data4Fragment_to_detail1Fragment2"
+            app:destination="@id/detail1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detail1Fragment"
+        android:name="com.example.penduduk_lanteng.data.data1.Detail1Fragment"
+        android:label="fragment_detail1"
+        tools:layout="@layout/fragment_detail1" />
 </navigation>
