@@ -27,15 +27,15 @@ interface PendudukDao {
     @Update
     suspend fun updatePenduduk(penduduk: Penduduk)
 
-  // Query untuk mendapatkan penduduk berdasarkan ID
+    // Query untuk mendapatkan penduduk berdasarkan ID
     @Query("SELECT * FROM penduduk WHERE id = :id LIMIT 1")
     fun getPendudukById(id: Int): LiveData<Penduduk>
 
-// Fungsi untuk menghapus penduduk berdasarkan ID
+    // Fungsi untuk menghapus penduduk berdasarkan ID
     @Query("DELETE FROM penduduk WHERE id = :id")
     suspend fun deletePendudukById(id: Int)
 
-    // PendudukDao.kt
+//    buat search
     @Query("SELECT * FROM penduduk WHERE nik = :nik AND rt = :rt")
     fun searchPendudukByNIKAndRT(nik: String, rt: String): LiveData<List<Penduduk>>
 

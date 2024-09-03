@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -47,6 +48,22 @@ class Data3Fragment : Fragment(), PendudukAdapter.OnItemClickListener {
         pendudukViewModel.getPendudukByRT("3").observe(viewLifecycleOwner, { pendudukList ->
             adapter.setPendudukData(pendudukList)
         })
+
+        // Tombol pencarian
+        binding.buttonSearch.setOnClickListener {
+            val nik = binding.editTextSearch.text.toString()
+            if (nik.isNotEmpty()) {
+                pendudukViewModel.searchPendudukByNIKAndRT(nik, "3").observe(viewLifecycleOwner) { searchResults ->
+                    if (searchResults.isNotEmpty()) {
+                        adapter.setPendudukData(searchResults)
+                    } else {
+                        Toast.makeText(requireContext(), "Data tidak ditemukan!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else {
+                Toast.makeText(requireContext(), "Masukkan NIK untuk pencarian", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         return binding.root
     }

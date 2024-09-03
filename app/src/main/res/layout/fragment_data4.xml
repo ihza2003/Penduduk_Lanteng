@@ -32,12 +32,42 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- EditText untuk Input Search -->
+
+    <EditText
+        android:id="@+id/editTextSearch"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_bg"
+        android:hint="Masukan Nik"
+        android:inputType="number"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <Button
+        android:id="@+id/buttonSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#4F6F52"
+        android:padding="10dp"
+        android:text="Search"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toEndOf="@+id/editTextSearch"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_rt1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/item_home"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSearch"
         android:layout_marginTop="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
