@@ -28,4 +28,6 @@ class PendudukRepository(private val pendudukDao: PendudukDao) {
         return pendudukDao.searchPendudukByNIKAndRT(nik, rt)
     }
 
+
+
 }

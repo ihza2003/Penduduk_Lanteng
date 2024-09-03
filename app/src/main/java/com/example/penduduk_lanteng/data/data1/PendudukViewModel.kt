@@ -36,6 +36,7 @@ class PendudukViewModel(private val repository: PendudukRepository) : ViewModel(
         return repository.searchPendudukByNIKAndRT(nik, rt)
     }
 
+
 }
 
 class PendudukViewModelFactory(private val repository: PendudukRepository) : ViewModelProvider.Factory {

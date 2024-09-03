@@ -39,4 +39,9 @@ interface PendudukDao {
     @Query("SELECT * FROM penduduk WHERE nik = :nik AND rt = :rt")
     fun searchPendudukByNIKAndRT(nik: String, rt: String): LiveData<List<Penduduk>>
 
+    @Query("SELECT * FROM penduduk")
+    suspend fun getAllPenduduk(): List<Penduduk>
+
+
+
 }
