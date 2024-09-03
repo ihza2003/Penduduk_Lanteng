@@ -88,5 +88,14 @@
         android:id="@+id/detail1Fragment"
         android:name="com.example.penduduk_lanteng.data.data1.Detail1Fragment"
         android:label="fragment_detail1"
-        tools:layout="@layout/fragment_detail1" />
+        tools:layout="@layout/fragment_detail1" >
+        <action
+            android:id="@+id/action_detail1Fragment_to_editFragment"
+            app:destination="@id/editFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.penduduk_lanteng.layanan.EditFragment"
+        android:label="fragment_edit"
+        tools:layout="@layout/fragment_edit" />
 </navigation>

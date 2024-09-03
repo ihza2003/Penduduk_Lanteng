@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.example.penduduk_lanteng.DB.entity.Penduduk
 
 @Dao
@@ -22,5 +23,16 @@ interface PendudukDao {
     @Query("SELECT * FROM penduduk WHERE rt = :rt")
     fun getPendudukByRT(rt: String): LiveData<List<Penduduk>>
 
+    // Update data penduduk yang sudah ada
+    @Update
+    suspend fun updatePenduduk(penduduk: Penduduk)
+
+  // Query untuk mendapatkan penduduk berdasarkan ID
+    @Query("SELECT * FROM penduduk WHERE id = :id LIMIT 1")
+    fun getPendudukById(id: Int): LiveData<Penduduk>
+
+// Fungsi untuk menghapus penduduk berdasarkan ID
+    @Query("DELETE FROM penduduk WHERE id = :id")
+    suspend fun deletePendudukById(id: Int)
 
 }

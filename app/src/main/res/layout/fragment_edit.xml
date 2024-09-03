@@ -3,12 +3,377 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".layanan.EditFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home_header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="80dp"
+        android:background="@color/warna2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Data Penduduk"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_header"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Ubah semua elemen agar tidak memiliki app:layout_constraintBottom_toBottomOf="parent" -->
+            <TextView
+                android:id="@+id/Judul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Edit Data Penduduk"
+                android:textAlignment="center"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.48"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/JdlNama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Nama Asli"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.079"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Judul" />
+
+            <EditText
+                android:id="@+id/EditNama"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:ems="10"
+                android:hint="Masukkan Nama Asli"
+                android:inputType="text"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/JdlNama" />
+
+            <TextView
+                android:id="@+id/JdlAlias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Nama Alias"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EditNama" />
+
+            <EditText
+                android:id="@+id/EditAlias"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:background="@drawable/rounded_bg"
+                android:ems="10"
+                android:hint="Masukkan Nama Alias"
+                android:inputType="text"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/JdlAlias" />
+
+            <TextView
+                android:id="@+id/JdlNIK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="NIK"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.068"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EditAlias" />
+
+            <EditText
+                android:id="@+id/EditNIK"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:background="@drawable/rounded_bg"
+                android:ems="10"
+                android:hint="Masukkan NIK"
+                android:inputType="number"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/JdlNIK" />
+
+            <TextView
+                android:id="@+id/JdlTmpt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Tempat Lahir"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.084"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EditNIK" />
+
+            <EditText
+                android:id="@+id/EditTmpt"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:background="@drawable/rounded_bg"
+                android:ems="10"
+                android:hint="Masukkan Tempat Lahir"
+                android:inputType="text"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/JdlTmpt" />
+
+            <TextView
+                android:id="@+id/JdlTgl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Tanggal Lahir"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EditTmpt" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/baseline_calendar_month_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.071"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/JdlTgl" />
+
+
+            <EditText
+                android:id="@+id/EditTgl"
+                android:layout_width="260dp"
+                android:layout_height="59dp"
+                android:background="@drawable/rounded_bg"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="01-01-200"
+                android:padding="10dp"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.402"
+                app:layout_constraintStart_toEndOf="@id/imageButton"
+                app:layout_constraintTop_toBottomOf="@id/JdlTgl" />
+
+            <TextView
+                android:id="@+id/JdlAgm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Agama"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.073"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+            <EditText
+                android:id="@+id/EditAgm"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:ems="10"
+                android:hint="Masukkan Agama"
+                android:inputType="text"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlAgm" />
+
+            <TextView
+                android:id="@+id/JdlPekerjaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Pekerjaan"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EditAgm" />
+
+            <EditText
+                android:id="@+id/EditPekerjaan"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:ems="10"
+                android:hint="Masukkan Pekerjaan"
+                android:inputType="text"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlPekerjaan" />
+
+            <TextView
+                android:id="@+id/JdlKelamin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Kelamin"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EditPekerjaan" />
+
+            <Spinner
+                android:id="@+id/EditKelamin"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlKelamin" />
+
+            <TextView
+                android:id="@+id/JdlRT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="RT"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EditKelamin" />
+
+            <Spinner
+                android:id="@+id/EditRT"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlRT" />
+
+            <TextView
+                android:id="@+id/JdlStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Status"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EditRT" />
+
+            <Spinner
+                android:id="@+id/EditStatus"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlStatus" />
+
+            <TextView
+                android:id="@+id/JdlHidup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Status Hidup"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EditStatus" />
+
+            <Spinner
+                android:id="@+id/EditHidup"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlHidup" />
+
+
+            <Button
+                android:id="@+id/Edit"
+                android:layout_width="320dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="28dp"
+                android:backgroundTint="#4F6F52"
+                android:text="Edit"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EditHidup" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:layout_constraintTop_toBottomOf="@+id/Edit"
+
+                >
+
+            </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

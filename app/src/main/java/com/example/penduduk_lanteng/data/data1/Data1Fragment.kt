@@ -55,6 +55,8 @@ class Data1Fragment : Fragment(), PendudukAdapter.OnItemClickListener {
         findNavController().navigate(R.id.action_data1Fragment_to_detail1Fragment, bundle)
     }
 
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

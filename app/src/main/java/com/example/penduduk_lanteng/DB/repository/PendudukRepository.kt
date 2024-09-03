@@ -9,4 +9,19 @@ class PendudukRepository(private val pendudukDao: PendudukDao) {
     fun getPendudukByRT(rt: String): LiveData<List<Penduduk>> {
         return pendudukDao.getPendudukByRT(rt)
     }
+
+    suspend fun updatePenduduk(penduduk: Penduduk) {
+        return pendudukDao.updatePenduduk(penduduk)
+    }
+
+    // Fungsi untuk mendapatkan penduduk berdasarkan ID
+    fun getPendudukById(id: Int): LiveData<Penduduk> {
+        return pendudukDao.getPendudukById(id)
+    }
+
+    // Fungsi untuk menghapus penduduk berdasarkan ID
+    suspend fun deletePendudukById(id: Int) {
+        pendudukDao.deletePendudukById(id)
+    }
+
 }
