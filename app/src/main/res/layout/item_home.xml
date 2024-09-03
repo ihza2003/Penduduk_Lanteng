@@ -28,30 +28,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/subAlias"
+            android:id="@+id/nik"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:text="Nama Alias : "
+            android:text="text nik"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nama" />
-
-
-        <TextView
-            android:id="@+id/alias"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="alias"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/subRT1"
-            app:layout_constraintStart_toEndOf="@+id/subAlias"
-            app:layout_constraintTop_toBottomOf="@+id/nama"
-            app:layout_constraintVertical_bias="0.545" />
 
         <TextView
             android:id="@+id/kelamin"
@@ -62,10 +48,10 @@
             android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@+id/subRT1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.879"
-            app:layout_constraintStart_toEndOf="@+id/alias"
+            app:layout_constraintHorizontal_bias="0.843"
+            app:layout_constraintStart_toEndOf="@+id/nik"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.13" />
+            app:layout_constraintVertical_bias="0.111" />
 
         <TextView
             android:id="@+id/subRT1"
@@ -76,7 +62,7 @@
             android:text="RT :"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/subAlias" />
+            app:layout_constraintTop_toBottomOf="@+id/nik" />
 
         <TextView
             android:id="@+id/dRT1"
@@ -87,7 +73,7 @@
             android:text="text RT"
             android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/subRT1"
-            app:layout_constraintTop_toBottomOf="@+id/subAlias" />
+            app:layout_constraintTop_toBottomOf="@+id/nik" />
 
         <TextView
             android:id="@+id/hidup"

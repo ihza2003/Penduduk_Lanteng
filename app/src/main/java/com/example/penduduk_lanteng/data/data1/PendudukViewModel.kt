@@ -32,6 +32,10 @@ class PendudukViewModel(private val repository: PendudukRepository) : ViewModel(
         }
     }
 
+    fun searchPendudukByNIKAndRT(nik: String, rt: String): LiveData<List<Penduduk>> {
+        return repository.searchPendudukByNIKAndRT(nik, rt)
+    }
+
 }
 
 class PendudukViewModelFactory(private val repository: PendudukRepository) : ViewModelProvider.Factory {

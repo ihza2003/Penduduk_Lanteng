@@ -35,4 +35,8 @@ interface PendudukDao {
     @Query("DELETE FROM penduduk WHERE id = :id")
     suspend fun deletePendudukById(id: Int)
 
+    // PendudukDao.kt
+    @Query("SELECT * FROM penduduk WHERE nik = :nik AND rt = :rt")
+    fun searchPendudukByNIKAndRT(nik: String, rt: String): LiveData<List<Penduduk>>
+
 }

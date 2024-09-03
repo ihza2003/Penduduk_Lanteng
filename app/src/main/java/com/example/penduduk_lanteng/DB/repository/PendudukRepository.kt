@@ -24,4 +24,8 @@ class PendudukRepository(private val pendudukDao: PendudukDao) {
         pendudukDao.deletePendudukById(id)
     }
 
+    fun searchPendudukByNIKAndRT(nik: String, rt: String): LiveData<List<Penduduk>> {
+        return pendudukDao.searchPendudukByNIKAndRT(nik, rt)
+    }
+
 }

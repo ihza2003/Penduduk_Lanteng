@@ -22,7 +22,7 @@ class PendudukAdapter(
             binding.nama.text = penduduk.nama
             binding.dRT1.text = penduduk.rt
             binding.kelamin.text = penduduk.kelamin
-            binding.alias.text = penduduk.alias
+            binding.nik.text = penduduk.nik
             binding.hidup.text = penduduk.hidup
 
             // Set onClickListener pada itemView
