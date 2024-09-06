@@ -42,6 +42,7 @@ interface PendudukDao {
     @Query("SELECT * FROM penduduk")
     suspend fun getAllPenduduk(): List<Penduduk>
 
-
+    @Query("SELECT COUNT(*) FROM penduduk WHERE rt = :rt")
+    fun getCountByRT(rt: String): LiveData<Int>
 
 }

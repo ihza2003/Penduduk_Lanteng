@@ -24,8 +24,13 @@ class PendudukRepository(private val pendudukDao: PendudukDao) {
         pendudukDao.deletePendudukById(id)
     }
 
+    //untuk search nik berdasarkan rt
     fun searchPendudukByNIKAndRT(nik: String, rt: String): LiveData<List<Penduduk>> {
         return pendudukDao.searchPendudukByNIKAndRT(nik, rt)
+    }
+
+    fun getCountByRT(rt: String): LiveData<Int> {
+        return pendudukDao.getCountByRT(rt)
     }
 
 

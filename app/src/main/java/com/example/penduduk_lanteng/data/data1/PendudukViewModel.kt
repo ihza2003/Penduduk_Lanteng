@@ -36,6 +36,10 @@ class PendudukViewModel(private val repository: PendudukRepository) : ViewModel(
         return repository.searchPendudukByNIKAndRT(nik, rt)
     }
 
+    fun getCountByRT(rt: String): LiveData<Int> {
+        return repository.getCountByRT(rt)
+    }
+
 
 }
 

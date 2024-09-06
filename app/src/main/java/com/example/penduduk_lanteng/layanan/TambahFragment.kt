@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.penduduk_lanteng.DB.AppDatabase
 import com.example.penduduk_lanteng.DB.entity.Penduduk
 import com.example.penduduk_lanteng.R
@@ -155,6 +156,7 @@ class TambahFragment : Fragment() {
                 db?.pendudukDao()?.insertPenduduk(penduduk)
             }
 
+            findNavController().navigate(R.id.action_tambahFragment_to_navigationParentFragment)
             Toast.makeText(requireContext(), "Data berhasil ditambahkan!", Toast.LENGTH_SHORT).show()
         }
     }

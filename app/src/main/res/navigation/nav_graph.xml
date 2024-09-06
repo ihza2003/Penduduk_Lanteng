@@ -29,7 +29,11 @@
         android:id="@+id/tambahFragment"
         android:name="com.example.penduduk_lanteng.layanan.TambahFragment"
         android:label="fragment_tambah"
-        tools:layout="@layout/fragment_tambah" />
+        tools:layout="@layout/fragment_tambah" >
+        <action
+            android:id="@+id/action_tambahFragment_to_navigationParentFragment"
+            app:destination="@id/navigationParentFragment" />
+    </fragment>
     <fragment
         android:id="@+id/lihatFragment"
         android:name="com.example.penduduk_lanteng.layanan.LihatFragment"

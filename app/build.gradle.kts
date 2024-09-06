@@ -70,4 +70,9 @@ dependencies {
 
     // jxl atau Android Excel Library
     implementation ("net.sourceforge.jexcelapi:jxl:2.6.12")
+
+//    untuk grafik lingkaran
+//    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation ("com.github.PhilJay:MPAndroidChart:3.1.0")
+
 }
