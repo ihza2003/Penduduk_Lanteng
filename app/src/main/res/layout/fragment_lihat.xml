@@ -184,7 +184,7 @@
         android:id="@+id/buttonExportToExcel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/warna2"
         android:text="Export to Excel"
         android:textColor="@android:color/white"
@@ -192,5 +192,19 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rt4" />
+
+    <Button
+        android:id="@+id/buttonImportFromExcel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/warna2"
+        android:text="Import from Excel"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonExportToExcel" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

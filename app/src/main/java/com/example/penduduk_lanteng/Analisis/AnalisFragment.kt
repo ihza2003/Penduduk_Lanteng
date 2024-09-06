@@ -80,7 +80,7 @@ class AnalisFragment : Fragment() {
         pieChart.setEntryLabelTextSize(15f)
         pieChart.setEntryLabelColor(Color.BLACK)
         pieChart.centerText = "Kependudukan"
-        pieChart.setCenterTextSize(24f)
+        pieChart.setCenterTextSize(18f)
         pieChart.description.isEnabled = false
 
         // Atur properti legenda
