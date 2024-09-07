@@ -165,14 +165,13 @@ class EditFragment : Fragment() {
             rt,
             status,
             hidup
-
         )
 
         viewModel.updatePenduduk(updatedPenduduk)
 
         // Navigasi kembali ke Detail1Fragment
         findNavController().popBackStack()
-        Toast.makeText(requireContext(), "Data berhasil diEdit!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Data berhasil di Edit!", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

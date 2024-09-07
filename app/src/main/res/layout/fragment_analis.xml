@@ -60,6 +60,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 />
 
+<!--        app:layout_constraintDimensionRatio="1:1" untuk memaksan chart berbentuk kotak-->
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/pieChart"
                 android:layout_width="0dp"

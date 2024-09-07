@@ -66,7 +66,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="12dp"
                             android:text="Nama               :"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,7 +78,7 @@
                             android:layout_marginTop="12dp"
                             android:text="textNama"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toEndOf="@+id/SubDNama"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -89,7 +89,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="12dp"
                             android:text="Nama Alias     :"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/dNama"/>
 
@@ -101,7 +101,7 @@
                             android:layout_marginTop="12dp"
                             android:text="textAlias"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toEndOf="@+id/SubDAlias"
                             app:layout_constraintTop_toBottomOf="@id/dNama" />
 
@@ -112,7 +112,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="12dp"
                             android:text="NIK                   :"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/dAlias"/>
 
@@ -124,7 +124,7 @@
                             android:layout_marginTop="12dp"
                             android:text="No NIK"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toEndOf="@+id/SubDNik"
                             app:layout_constraintTop_toBottomOf="@id/dAlias" />
 
@@ -135,7 +135,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="12dp"
                             android:text="Tempat Lahir  :"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/dNik"/>
 
@@ -147,7 +147,7 @@
                             android:layout_marginTop="12dp"
                             android:text="Nama Tempat"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toEndOf="@+id/SubDTempat"
                             app:layout_constraintTop_toBottomOf="@id/dNik" />
 
@@ -158,7 +158,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="12dp"
                             android:text="Tanggal Lahir :"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/dTempat"/>
 
@@ -170,7 +170,7 @@
                             android:layout_marginTop="12dp"
                             android:text="Tgl Lahir"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toEndOf="@+id/SubDTgl"
                             app:layout_constraintTop_toBottomOf="@id/dTempat" />
 
@@ -181,7 +181,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="12dp"
                             android:text="Agama             :"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/dTgl"/>
 
@@ -193,7 +193,7 @@
                             android:layout_marginTop="12dp"
                             android:text="text Agm"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toEndOf="@+id/SubDAgm"
                             app:layout_constraintTop_toBottomOf="@id/dTgl" />
 
@@ -204,7 +204,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="12dp"
                             android:text="Pekerjaan        :"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/dAgm"/>
 
@@ -216,7 +216,7 @@
                             android:layout_marginTop="12dp"
                             android:text="text Pkr"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toEndOf="@+id/SubDPekerjaan"
                             app:layout_constraintTop_toBottomOf="@id/dAgm" />
 
@@ -227,7 +227,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="12dp"
                             android:text="Kelamin           :"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/dPekerjaan"/>
 
@@ -239,7 +239,7 @@
                             android:layout_marginTop="12dp"
                             android:text="text Kelamin"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toEndOf="@+id/SubDKelamin"
                             app:layout_constraintTop_toBottomOf="@id/dPekerjaan" />
 
@@ -250,7 +250,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="12dp"
                             android:text="RT                     :"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/dkelamin"/>
 
@@ -262,7 +262,7 @@
                             android:layout_marginTop="12dp"
                             android:text="text RT"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toEndOf="@+id/SubDRT"
                             app:layout_constraintTop_toBottomOf="@id/dkelamin" />
 
@@ -273,7 +273,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="12dp"
                             android:text="Status              :"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/dRT"/>
 
@@ -285,7 +285,7 @@
                             android:layout_marginTop="12dp"
                             android:text="text Status"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toEndOf="@+id/SubDStatus"
                             app:layout_constraintTop_toBottomOf="@id/dRT" />
 
@@ -296,7 +296,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="12dp"
                             android:text="Status Hidup  :"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/dStatus"/>
 
@@ -308,7 +308,7 @@
                             android:layout_marginTop="12dp"
                             android:text="text Hidup"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toEndOf="@+id/SubDHidup"
                             app:layout_constraintTop_toBottomOf="@id/dStatus" />
 
@@ -339,6 +339,8 @@
                             app:layout_constraintHorizontal_bias="0.497"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/edit" />
+
+
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
