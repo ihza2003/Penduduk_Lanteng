@@ -95,7 +95,7 @@ class LihatFragment : Fragment() {
 
             // Membuat nama file unik dengan menggunakan timestamp
             val timestamp = System.currentTimeMillis() // Anda juga bisa menggunakan UUID.randomUUID().toString() untuk nama file yang lebih unik
-            val fileName = "DataPenduduk_$timestamp.xls"
+            val fileName = "DataPenduduk_$timestamp.xlsx"
             val file = File(downloadsDir, fileName)
             val uri = Uri.fromFile(file)
 
@@ -233,7 +233,8 @@ class LihatFragment : Fragment() {
     private fun openFilePicker() {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
-            type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" // Untuk .xlsx
+            type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" // .xlsx
+
             putExtra(
                 Intent.EXTRA_MIME_TYPES, arrayOf(
                     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", // .xlsx
