@@ -104,6 +104,130 @@ class LihatFragment : Fragment() {
     }
 
 
+//    private suspend fun writeDataToExcel(uri: Uri) {
+//        try {
+//            val outputStream: OutputStream = FileOutputStream(File(uri.path!!))
+//
+//            // Buat Workbook menggunakan Apache POI
+//            val workbook = org.apache.poi.xssf.usermodel.XSSFWorkbook()
+//            val sheet = workbook.createSheet("Data Penduduk")
+//
+//            // Membuat Cell Style untuk header dengan border
+//            val headerCellStyle = workbook.createCellStyle().apply {
+//                val font = workbook.createFont().apply {
+//                    bold = true
+//                }
+//                setFont(font)
+//                borderTop = org.apache.poi.ss.usermodel.BorderStyle.THIN
+//                borderBottom = org.apache.poi.ss.usermodel.BorderStyle.THIN
+//                borderLeft = org.apache.poi.ss.usermodel.BorderStyle.THIN
+//                borderRight = org.apache.poi.ss.usermodel.BorderStyle.THIN
+//            }
+//
+//            // Membuat Cell Style untuk data dengan border
+//            val dataCellStyle = workbook.createCellStyle().apply {
+//                borderTop = org.apache.poi.ss.usermodel.BorderStyle.THIN
+//                borderBottom = org.apache.poi.ss.usermodel.BorderStyle.THIN
+//                borderLeft = org.apache.poi.ss.usermodel.BorderStyle.THIN
+//                borderRight = org.apache.poi.ss.usermodel.BorderStyle.THIN
+//            }
+//
+//            // Membuat Header jika belum ada
+//            if (!isHeaderPresent) {
+//                val headers = listOf(
+//                    "NIK", "Nama", "Alias", "Tempat Lahir",
+//                    "Tanggal Lahir", "Agama", "Pekerjaan",
+//                    "Kelamin", "RT", "Status", "Status Hidup"
+//                )
+//
+//                val headerRow = sheet.createRow(0)
+//
+//                headers.forEachIndexed { index, header ->
+//                    val cell = headerRow.createCell(index)
+//                    cell.setCellValue(header)
+//                    cell.cellStyle = headerCellStyle // Terapkan style bold dan border ke header
+//                }
+//
+//                // Freeze header row
+//                sheet.createFreezePane(0, 1)
+//            }
+//
+//            // Ambil data penduduk dari database
+//            val pendudukList = pendudukDao.getAllPenduduk()
+//            pendudukList.forEachIndexed { rowIndex, penduduk ->
+//                val row = sheet.createRow(rowIndex + 1)
+//                row.createCell(0).apply {
+//                    setCellValue(penduduk.nik)
+//                    cellStyle = dataCellStyle // Terapkan border ke cell
+//                }
+//                row.createCell(1).apply {
+//                    setCellValue(penduduk.nama)
+//                    cellStyle = dataCellStyle
+//                }
+//                row.createCell(2).apply {
+//                    setCellValue(penduduk.alias)
+//                    cellStyle = dataCellStyle
+//                }
+//                row.createCell(3).apply {
+//                    setCellValue(penduduk.tempat_lahir)
+//                    cellStyle = dataCellStyle
+//                }
+//                row.createCell(4).apply {
+//                    setCellValue(penduduk.tanggal_lahir)
+//                    cellStyle = dataCellStyle
+//                }
+//                row.createCell(5).apply {
+//                    setCellValue(penduduk.agama)
+//                    cellStyle = dataCellStyle
+//                }
+//                row.createCell(6).apply {
+//                    setCellValue(penduduk.pekerjaan)
+//                    cellStyle = dataCellStyle
+//                }
+//                row.createCell(7).apply {
+//                    setCellValue(penduduk.kelamin)
+//                    cellStyle = dataCellStyle
+//                }
+//                row.createCell(8).apply {
+//                    setCellValue(penduduk.rt)
+//                    cellStyle = dataCellStyle
+//                }
+//                row.createCell(9).apply {
+//                    setCellValue(penduduk.status)
+//                    cellStyle = dataCellStyle
+//                }
+//                row.createCell(10).apply {
+//                    setCellValue(penduduk.hidup)
+//                    cellStyle = dataCellStyle
+//                }
+//            }
+//
+//            // Atur lebar kolom secara otomatis
+//            sheet.setColumnWidth(0, 5000) // Menetapkan lebar kolom pertama
+//            sheet.setColumnWidth(1, 5000) // Menetapkan lebar kolom kedua, dan seterusnya
+//            sheet.setColumnWidth(2, 5000)
+//            sheet.setColumnWidth(3, 5000)
+//            sheet.setColumnWidth(4, 5000)
+//            sheet.setColumnWidth(5, 5000)
+//            sheet.setColumnWidth(6, 5000)
+//            sheet.setColumnWidth(7, 5000)
+//            sheet.setColumnWidth(8, 2000)
+//            sheet.setColumnWidth(9, 5000)
+//            sheet.setColumnWidth(10, 5000)
+//
+//
+//
+//            // Simpan Workbook ke file
+//            workbook.write(outputStream)
+//            workbook.close()
+//            outputStream.close()
+//
+//            Toast.makeText(requireContext(), "Data berhasil diekspor", Toast.LENGTH_LONG).show()
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//            Toast.makeText(requireContext(), "Gagal mengekspor data", Toast.LENGTH_SHORT).show()
+//        }
+//    }
     private suspend fun writeDataToExcel(uri: Uri) {
         try {
             val outputStream: OutputStream = FileOutputStream(File(uri.path!!))
@@ -111,6 +235,7 @@ class LihatFragment : Fragment() {
             // Buat Workbook menggunakan Apache POI
             val workbook = org.apache.poi.xssf.usermodel.XSSFWorkbook()
             val sheet = workbook.createSheet("Data Penduduk")
+
 
             // Membuat Cell Style untuk header dengan border
             val headerCellStyle = workbook.createCellStyle().apply {
@@ -131,6 +256,26 @@ class LihatFragment : Fragment() {
                 borderLeft = org.apache.poi.ss.usermodel.BorderStyle.THIN
                 borderRight = org.apache.poi.ss.usermodel.BorderStyle.THIN
             }
+
+            // Membuat Cell Style khusus untuk angka (RT)
+            val numberCellStyle = workbook.createCellStyle().apply {
+                borderTop = org.apache.poi.ss.usermodel.BorderStyle.THIN
+                borderBottom = org.apache.poi.ss.usermodel.BorderStyle.THIN
+                borderLeft = org.apache.poi.ss.usermodel.BorderStyle.THIN
+                borderRight = org.apache.poi.ss.usermodel.BorderStyle.THIN
+                dataFormat = workbook.createDataFormat().getFormat("0") // Format angka
+            }
+
+    // Membuat Cell Style untuk format tanggal
+            val dateCellStyle = workbook.createCellStyle().apply {
+                val creationHelper = workbook.creationHelper
+                dataFormat = creationHelper.createDataFormat().getFormat("dd/MM/yyyy")
+                borderTop = org.apache.poi.ss.usermodel.BorderStyle.THIN
+                borderBottom = org.apache.poi.ss.usermodel.BorderStyle.THIN
+                borderLeft = org.apache.poi.ss.usermodel.BorderStyle.THIN
+                borderRight = org.apache.poi.ss.usermodel.BorderStyle.THIN
+            }
+
 
             // Membuat Header jika belum ada
             if (!isHeaderPresent) {
@@ -155,10 +300,12 @@ class LihatFragment : Fragment() {
             // Ambil data penduduk dari database
             val pendudukList = pendudukDao.getAllPenduduk()
             pendudukList.forEachIndexed { rowIndex, penduduk ->
+
                 val row = sheet.createRow(rowIndex + 1)
+
                 row.createCell(0).apply {
                     setCellValue(penduduk.nik)
-                    cellStyle = dataCellStyle // Terapkan border ke cell
+                    cellStyle = dataCellStyle
                 }
                 row.createCell(1).apply {
                     setCellValue(penduduk.nama)
@@ -172,10 +319,15 @@ class LihatFragment : Fragment() {
                     setCellValue(penduduk.tempat_lahir)
                     cellStyle = dataCellStyle
                 }
+
+                // Tanggal Lahir (diubah menjadi tipe Date)
                 row.createCell(4).apply {
-                    setCellValue(penduduk.tanggal_lahir)
-                    cellStyle = dataCellStyle
+                    val dateFormat = java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault())
+                    val date = dateFormat.parse(penduduk.tanggal_lahir)
+                    setCellValue(date)
+                    cellStyle = dateCellStyle // Terapkan style tanggal ke cell
                 }
+
                 row.createCell(5).apply {
                     setCellValue(penduduk.agama)
                     cellStyle = dataCellStyle
@@ -188,10 +340,13 @@ class LihatFragment : Fragment() {
                     setCellValue(penduduk.kelamin)
                     cellStyle = dataCellStyle
                 }
+
+                // RT (diubah menjadi tipe Number)
                 row.createCell(8).apply {
-                    setCellValue(penduduk.rt)
-                    cellStyle = dataCellStyle
+                    setCellValue(penduduk.rt.toDouble()) // Set nilai sebagai angka
+                    cellStyle = numberCellStyle // Terapkan style angka
                 }
+
                 row.createCell(9).apply {
                     setCellValue(penduduk.status)
                     cellStyle = dataCellStyle
@@ -215,8 +370,6 @@ class LihatFragment : Fragment() {
             sheet.setColumnWidth(9, 5000)
             sheet.setColumnWidth(10, 5000)
 
-
-
             // Simpan Workbook ke file
             workbook.write(outputStream)
             workbook.close()
@@ -228,6 +381,7 @@ class LihatFragment : Fragment() {
             Toast.makeText(requireContext(), "Gagal mengekspor data", Toast.LENGTH_SHORT).show()
         }
     }
+
 
 
     private fun openFilePicker() {
@@ -268,20 +422,39 @@ class LihatFragment : Fragment() {
                 isHeaderPresent = true
             }
 
-            // Iterasi melalui setiap baris di sheet (mulai dari baris ke-2 jika ada header)
+//            Iterasi melalui setiap baris di sheet (mulai dari baris ke-2 jika ada header)
             for (i in 1 until sheet.physicalNumberOfRows) {
                 val row = sheet.getRow(i)
-                val nik = row.getCell(0).stringCellValue
-                val nama = row.getCell(1).stringCellValue
-                val alias = row.getCell(2).stringCellValue
-                val tempatLahir = row.getCell(3).stringCellValue
-                val tanggalLahir = row.getCell(4).stringCellValue
-                val agama = row.getCell(5).stringCellValue
-                val pekerjaan = row.getCell(6).stringCellValue
-                val kelamin = row.getCell(7).stringCellValue
-                val rt = row.getCell(8).stringCellValue
-                val status = row.getCell(9).stringCellValue
-                val hidup = row.getCell(10).stringCellValue
+
+                // Ambil nilai NIK dan Nama, pastikan tidak null atau kosong
+                val nik = row.getCell(0)?.stringCellValue ?: continue // Skip row jika NIK kosong
+                val nama = row.getCell(1)?.stringCellValue ?: continue // Skip row jika Nama kosong
+
+                // Ambil nilai kolom lainnya, isi dengan default value jika kosong
+                val alias = row.getCell(2)?.stringCellValue ?: "" // Alias kosong jika null
+                val tempatLahir = row.getCell(3)?.stringCellValue ?: "" // Tempat lahir kosong jika null
+
+                // Cek apakah cell adalah tipe Date
+                val tanggalLahir = if (row.getCell(4)?.cellType == org.apache.poi.ss.usermodel.CellType.NUMERIC && org.apache.poi.ss.usermodel.DateUtil.isCellDateFormatted(row.getCell(4))) {
+                    val dateFormat = java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault())
+                    dateFormat.format(row.getCell(4).dateCellValue) // Ubah tipe Date ke format String
+                } else {
+                    row.getCell(4)?.stringCellValue ?: "" // Jika bukan date, baca sebagai String atau kosongkan
+                }
+
+                val agama = row.getCell(5)?.stringCellValue ?: "" // Agama kosong jika null
+                val pekerjaan = row.getCell(6)?.stringCellValue ?: "" // Pekerjaan kosong jika null
+                val kelamin = row.getCell(7)?.stringCellValue ?: "" // Kelamin kosong jika null
+
+                // Cek apakah cell adalah tipe Number
+                val rt = if (row.getCell(8)?.cellType == org.apache.poi.ss.usermodel.CellType.NUMERIC) {
+                    row.getCell(8).numericCellValue.toInt().toString() // Konversi ke String
+                } else {
+                    row.getCell(8)?.stringCellValue ?: "" // Jika bukan angka, baca sebagai String atau kosongkan
+                }
+
+                val status = row.getCell(9)?.stringCellValue ?: "" // Status kosong jika null
+                val hidup = row.getCell(10)?.stringCellValue ?: "" // Hidup kosong jika null
 
                 // Buat objek Penduduk dari data yang dibaca
                 val penduduk = Penduduk(
@@ -311,6 +484,7 @@ class LihatFragment : Fragment() {
             Toast.makeText(requireContext(), "Gagal membaca file Excel", Toast.LENGTH_SHORT).show()
         }
     }
+
 
 
     override fun onDestroyView() {

@@ -25,6 +25,7 @@ class EditFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var penduduk: Penduduk
     private lateinit var viewModel: PendudukViewModel
+    private var pendudukId: Int = 0  // To store the ID of the selected Penduduk
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,7 +54,47 @@ class EditFragment : Fragment() {
             // Tampilkan DatePickerDialog
             datePickerDialog.show()
         }
+
+
+
+        // Ambil data penduduk dari arguments
+        penduduk = arguments?.getParcelable("penduduk_data")!!
+
+        // Inisialisasi ViewModel
+        val appDatabase = AppDatabase.getInstance(requireContext())
+        val pendudukDao = appDatabase?.pendudukDao()
+        val repository = PendudukRepository(pendudukDao!!)
+
+        viewModel = ViewModelProvider(this, PendudukViewModelFactory(repository)).get(PendudukViewModel::class.java)
+
+        // Ambil ID penduduk dari argument yang dikirim dari Detail1Fragment
+        pendudukId = penduduk?.id ?: 0
+
+
+        // Mengamati data penduduk berdasarkan ID
+        viewModel.getPendudukById(pendudukId).observe(viewLifecycleOwner) { updatedPenduduk ->
+            updatedPenduduk?.let {
+                updateUI(it)
+            }
+        }
+
+        // Simpan perubahan
+        binding.Edit.setOnClickListener {
+            saveChanges()
+        }
+
+        return binding.root
+    }
+
+    private fun updateUI (penduduk: Penduduk) {
         // Inisialisasi Spinner
+        val agamaAdapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.agama_options,
+            android.R.layout.simple_spinner_item
+        )
+        agamaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.EditAgm.adapter = agamaAdapter
 
         val kelaminAdapter = ArrayAdapter.createFromResource(
             requireContext(),
@@ -86,23 +127,14 @@ class EditFragment : Fragment() {
         )
         hidupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.EditHidup.adapter = hidupAdapter
-        // Ambil data penduduk dari arguments
-        penduduk = arguments?.getParcelable("penduduk_data")!!
-
-        // Inisialisasi ViewModel
-        val appDatabase = AppDatabase.getInstance(requireContext())
-        val pendudukDao = appDatabase?.pendudukDao()
-        val repository = PendudukRepository(pendudukDao!!)
-
-        viewModel = ViewModelProvider(this, PendudukViewModelFactory(repository)).get(PendudukViewModel::class.java)
-
         // Tampilkan data awal di form edit
         binding.EditNama.setText(penduduk.nama)
         binding.EditAlias.setText(penduduk.alias)
         binding.EditNIK.setText(penduduk.nik)
         binding.EditTmpt.setText(penduduk.tempat_lahir)
         binding.EditTgl.setText(penduduk.tanggal_lahir)
-        binding.EditAgm.setText(penduduk.agama)
+        val agamaIndex = agamaAdapter.getPosition(penduduk.agama)
+        binding.EditAgm.setSelection(agamaIndex)
         binding.EditPekerjaan.setText(penduduk.pekerjaan)
         // Set Spinner values
         val kelaminIndex = kelaminAdapter.getPosition(penduduk.kelamin)
@@ -116,14 +148,9 @@ class EditFragment : Fragment() {
 
         val hidupIndex = hidupAdapter.getPosition(penduduk.hidup)
         binding.EditHidup.setSelection(hidupIndex)
-
-        // Simpan perubahan
-        binding.Edit.setOnClickListener {
-            saveChanges()
-        }
-
-        return binding.root
     }
+
+    
 
     private fun saveChanges() {
 
@@ -132,14 +159,14 @@ class EditFragment : Fragment() {
         val nik = binding.EditNIK.text.toString().trim()
         val tempat = binding.EditTmpt.text.toString().trim()
         val tanggal = binding.EditTgl.text.toString().trim()
-        val agama = binding.EditAgm.text.toString().trim()
+        val agama = binding.EditAgm.selectedItem.toString().trim()
         val pekerjaan = binding.EditPekerjaan.text.toString().trim()
         val kelamin = binding.EditKelamin.selectedItem.toString().trim()
         val rt = binding.EditRT.selectedItem.toString().trim()
         val status = binding.EditStatus.selectedItem.toString().trim()
         val hidup = binding.EditHidup.selectedItem.toString().trim()
 
-        if (nama.isEmpty() || alias.isEmpty() || nik.isEmpty() || tempat.isEmpty() || tanggal.isEmpty() || agama.isEmpty() || pekerjaan.isEmpty()
+        if (nama.isEmpty() || nik.isEmpty() || tempat.isEmpty() || tanggal.isEmpty() || agama == "Pilih Agama" || pekerjaan.isEmpty()
             || kelamin == "Pilih Kelamin"|| rt == "Pilih RT" || status == "Pilih Status" || hidup == "Status Hidup") {
             Toast.makeText(requireContext(), "Harap isi semua field!", Toast.LENGTH_SHORT).show()
             return

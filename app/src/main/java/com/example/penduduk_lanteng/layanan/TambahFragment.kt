@@ -61,6 +61,14 @@ class TambahFragment : Fragment() {
         }
         // Inisialisasi Spinner
 
+        val agamaAdapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.agama_options,
+            android.R.layout.simple_spinner_item
+        )
+        agamaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.InputAgm.adapter = agamaAdapter
+
         val kelaminAdapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.kelamin_options,
@@ -106,7 +114,7 @@ class TambahFragment : Fragment() {
         val nik = binding.InputNIK.text.toString().trim()
         val tempatLahir = binding.InputTmpt.text.toString().trim()
         val tanggalLahir = binding.InputTgl.text.toString().trim()
-        val agama = binding.InputAgm.text.toString().trim()
+        val agama = binding.InputAgm.selectedItem.toString().trim()
         val pekerjaan = binding.InputPekerjaan.text.toString().trim()
         val kelamin = binding.InputKelamin.selectedItem.toString().trim()
         val rt = binding.InputRT.selectedItem.toString().trim()
@@ -114,8 +122,8 @@ class TambahFragment : Fragment() {
         val hidup = binding.InputHidup.selectedItem.toString().trim()
 
         // Validasi input termasuk validasi RT dan Status
-        if (nama.isEmpty() || alias.isEmpty() || nik.isEmpty() || tempatLahir.isEmpty() ||
-            tanggalLahir.isEmpty() || agama.isEmpty() || pekerjaan.isEmpty() ||
+        if (nama.isEmpty() || nik.isEmpty() || tempatLahir.isEmpty() ||
+            tanggalLahir.isEmpty() || agama == "Pilih Agama" || pekerjaan.isEmpty() ||
             kelamin == "Pilih Kelamin"|| rt == "Pilih RT" || status == "Pilih Status" || hidup == "Status Hidup") {
             Toast.makeText(requireContext(), "Semua inputan harus diisi!", Toast.LENGTH_SHORT).show()
             return
@@ -154,10 +162,17 @@ class TambahFragment : Fragment() {
                     return@withContext
                 }
                 db?.pendudukDao()?.insertPenduduk(penduduk)
-            }
 
-            findNavController().navigate(R.id.action_tambahFragment_to_navigationParentFragment)
-            Toast.makeText(requireContext(), "Data berhasil ditambahkan!", Toast.LENGTH_SHORT).show()
+                withContext(Dispatchers.Main) {
+                    // Navigate only when data is successfully added
+                    findNavController().navigate(R.id.action_tambahFragment_to_navigationParentFragment)
+                    Toast.makeText(requireContext(), "Data berhasil ditambahkan!", Toast.LENGTH_SHORT).show()
+                }
+            }
+//
+//            findNavController().navigate(R.id.action_tambahFragment_to_navigationParentFragment)
+//            Toast.makeText(requireContext(), "Data berhasil ditambahkan!", Toast.LENGTH_SHORT).show()
+
         }
     }
 
