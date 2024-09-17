@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.penduduk_lanteng.DB.dao.PendudukDao
 import com.example.penduduk_lanteng.DB.entity.Penduduk
 
-@Database(entities = [Penduduk::class], version = 1)
+@Database(entities = [Penduduk::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun pendudukDao(): PendudukDao
 

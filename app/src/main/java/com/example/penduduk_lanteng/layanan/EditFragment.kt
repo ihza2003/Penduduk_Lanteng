@@ -127,24 +127,43 @@ class EditFragment : Fragment() {
         )
         hidupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.EditHidup.adapter = hidupAdapter
+
+        val golonganAdapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.gol_options,
+            android.R.layout.simple_spinner_item
+        )
+        golonganAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.EditGoldarah.adapter = golonganAdapter
+
         // Tampilkan data awal di form edit
         binding.EditNama.setText(penduduk.nama)
         binding.EditAlias.setText(penduduk.alias)
         binding.EditNIK.setText(penduduk.nik)
+        binding.EditNoKK.setText(penduduk.kk)
         binding.EditTmpt.setText(penduduk.tempat_lahir)
         binding.EditTgl.setText(penduduk.tanggal_lahir)
         val agamaIndex = agamaAdapter.getPosition(penduduk.agama)
         binding.EditAgm.setSelection(agamaIndex)
+        binding.EditPendidikan.setText(penduduk.pendidikan)
         binding.EditPekerjaan.setText(penduduk.pekerjaan)
         // Set Spinner values
         val kelaminIndex = kelaminAdapter.getPosition(penduduk.kelamin)
         binding.EditKelamin.setSelection(kelaminIndex)
 
-        val statusIndex = statusAdapter.getPosition(penduduk.status)
-        binding.EditStatus.setSelection(statusIndex)
+        val golonganIndex = golonganAdapter.getPosition(penduduk.gol_darah)
+        binding.EditGoldarah.setSelection(golonganIndex)
+
+        binding.EditAyah.setText(penduduk.ayah)
+        binding.EditIbu.setText(penduduk.ibu)
 
         val rtIndex = rtAdapter.getPosition(penduduk.rt)
         binding.EditRT.setSelection(rtIndex)
+
+        val statusIndex = statusAdapter.getPosition(penduduk.status)
+        binding.EditStatus.setSelection(statusIndex)
+
+        binding.EditKeluarga.setText(penduduk.keluarga)
 
         val hidupIndex = hidupAdapter.getPosition(penduduk.hidup)
         binding.EditHidup.setSelection(hidupIndex)
@@ -157,17 +176,25 @@ class EditFragment : Fragment() {
         val nama = binding.EditNama.text.toString().trim()
         val alias =binding.EditAlias.text.toString().trim()
         val nik = binding.EditNIK.text.toString().trim()
+        val kk = binding.EditNoKK.text.toString().trim()
         val tempat = binding.EditTmpt.text.toString().trim()
         val tanggal = binding.EditTgl.text.toString().trim()
         val agama = binding.EditAgm.selectedItem.toString().trim()
+        val pendidikan = binding.EditPendidikan.text.toString().trim()
         val pekerjaan = binding.EditPekerjaan.text.toString().trim()
         val kelamin = binding.EditKelamin.selectedItem.toString().trim()
+        val gol_darah = binding.EditGoldarah.selectedItem.toString().trim()
+        val ayah = binding.EditAyah.text.toString().trim()
+        val ibu = binding.EditIbu.text.toString().trim()
         val rt = binding.EditRT.selectedItem.toString().trim()
         val status = binding.EditStatus.selectedItem.toString().trim()
+        val keluarga = binding.EditKeluarga.text.toString().trim()
         val hidup = binding.EditHidup.selectedItem.toString().trim()
 
-        if (nama.isEmpty() || nik.isEmpty() || tempat.isEmpty() || tanggal.isEmpty() || agama == "Pilih Agama" || pekerjaan.isEmpty()
-            || kelamin == "Pilih Kelamin"|| rt == "Pilih RT" || status == "Pilih Status" || hidup == "Status Hidup") {
+        if (nama.isEmpty() || nik.isEmpty() ||kk.isEmpty() || tempat.isEmpty() ||
+            tanggal.isEmpty() || agama == "Pilih Agama" || pendidikan.isEmpty() || pekerjaan.isEmpty() ||
+            kelamin == "Pilih Kelamin"|| gol_darah == "Pilih Golongan Darah" || ayah.isEmpty() || ibu.isEmpty() ||
+            rt == "Pilih RT" || status == "Pilih Status" || keluarga.isEmpty() || hidup == "Status Hidup") {
             Toast.makeText(requireContext(), "Harap isi semua field!", Toast.LENGTH_SHORT).show()
             return
         }
@@ -184,13 +211,19 @@ class EditFragment : Fragment() {
             nama ,
             alias,
             nik,
+            kk,
             tempat,
             tanggal,
             agama,
+            pendidikan,
             pekerjaan,
             kelamin,
+            gol_darah,
+            ayah,
+            ibu,
             rt,
             status,
+            keluarga,
             hidup
         )
 

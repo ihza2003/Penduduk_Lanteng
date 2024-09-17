@@ -135,6 +135,31 @@
                 app:layout_constraintTop_toBottomOf="@id/JdlNIK" />
 
             <TextView
+                android:id="@+id/JdlNokk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="No KK"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.068"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EditNIK" />
+
+            <EditText
+                android:id="@+id/EditNoKK"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:background="@drawable/rounded_bg"
+                android:ems="10"
+                android:hint="Masukkan No KK"
+                android:inputType="number"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/JdlNokk" />
+
+            <TextView
                 android:id="@+id/JdlTmpt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -144,7 +169,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.084"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/EditNIK" />
+                app:layout_constraintTop_toBottomOf="@id/EditNoKK" />
 
             <EditText
                 android:id="@+id/EditTmpt"
@@ -222,20 +247,32 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/JdlAgm" />
 
-<!--            <EditText-->
-<!--                android:id="@+id/EditAgm"-->
-<!--                android:layout_width="320dp"-->
-<!--                android:layout_height="59dp"-->
-<!--                android:layout_marginTop="12dp"-->
-<!--                android:background="@drawable/rounded_bg"-->
-<!--                android:ems="10"-->
-<!--                android:hint="Masukkan Agama"-->
-<!--                android:inputType="text"-->
-<!--                android:padding="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.509"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/JdlAgm" />-->
+            <TextView
+                android:id="@+id/JdlPendidikan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Pendidikan"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.073"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EditAgm" />
+
+            <EditText
+                android:id="@+id/EditPendidikan"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:ems="10"
+                android:hint="Masukkan Pendidikan"
+                android:inputType="text"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlPendidikan" />
 
             <TextView
                 android:id="@+id/JdlPekerjaan"
@@ -247,7 +284,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.085"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/EditAgm" />
+                app:layout_constraintTop_toBottomOf="@+id/EditPendidikan" />
 
             <EditText
                 android:id="@+id/EditPekerjaan"
@@ -289,6 +326,84 @@
                 app:layout_constraintTop_toBottomOf="@+id/JdlKelamin" />
 
             <TextView
+                android:id="@+id/JdlGoldarah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Golongan darah"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EditKelamin" />
+
+            <Spinner
+                android:id="@+id/EditGoldarah"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlGoldarah" />
+
+            <TextView
+                android:id="@+id/JdlAyah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Nama Ayah"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EditGoldarah" />
+
+            <EditText
+                android:id="@+id/EditAyah"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:ems="10"
+                android:hint="Masukkan Nama Ayah"
+                android:inputType="text"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlAyah" />
+
+            <TextView
+                android:id="@+id/JdlIbu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Nama Ibu"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EditAyah" />
+
+            <EditText
+                android:id="@+id/EditIbu"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:ems="10"
+                android:hint="Masukkan Nama Ibu"
+                android:inputType="text"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlIbu" />
+
+            <TextView
                 android:id="@+id/JdlRT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -298,7 +413,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.085"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/EditKelamin" />
+                app:layout_constraintTop_toBottomOf="@+id/EditIbu" />
 
             <Spinner
                 android:id="@+id/EditRT"
@@ -337,6 +452,33 @@
                 app:layout_constraintTop_toBottomOf="@+id/JdlStatus" />
 
             <TextView
+                android:id="@+id/JdlKeluarga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Status Keluarga"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EditStatus" />
+
+            <EditText
+                android:id="@+id/EditKeluarga"
+                android:layout_width="320dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_bg"
+                android:ems="10"
+                android:hint="Masukkan Status dalam keluarga"
+                android:inputType="text"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/JdlKeluarga" />
+
+            <TextView
                 android:id="@+id/JdlHidup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -346,7 +488,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.085"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/EditStatus" />
+                app:layout_constraintTop_toBottomOf="@+id/EditKeluarga" />
 
             <Spinner
                 android:id="@+id/EditHidup"

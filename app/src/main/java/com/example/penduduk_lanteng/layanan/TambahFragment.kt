@@ -101,6 +101,14 @@ class TambahFragment : Fragment() {
         hidupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.InputHidup.adapter = hidupAdapter
 
+        val golonganAdapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.gol_options,
+            android.R.layout.simple_spinner_item
+        )
+        golonganAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.InputGoldarah.adapter = golonganAdapter
+
         binding.tambah.setOnClickListener {
             tambahPenduduk()
 
@@ -112,19 +120,26 @@ class TambahFragment : Fragment() {
         val nama = binding.InputNama.text.toString().trim()
         val alias = binding.InputAlias.text.toString().trim()
         val nik = binding.InputNIK.text.toString().trim()
+        val kk = binding.InputNoKK.text.toString().trim()
         val tempatLahir = binding.InputTmpt.text.toString().trim()
         val tanggalLahir = binding.InputTgl.text.toString().trim()
         val agama = binding.InputAgm.selectedItem.toString().trim()
+        val pendidikan = binding.InputPendidikan.text.toString().trim()
         val pekerjaan = binding.InputPekerjaan.text.toString().trim()
         val kelamin = binding.InputKelamin.selectedItem.toString().trim()
+        val gol = binding.InputGoldarah.selectedItem.toString().trim()
+        val ayah = binding.InputAyah.text.toString().trim()
+        val ibu = binding.InputIbu.text.toString().trim()
         val rt = binding.InputRT.selectedItem.toString().trim()
         val status = binding.InputStatus.selectedItem.toString().trim()
+        val keluarga = binding.InputKeluarga.text.toString().trim()
         val hidup = binding.InputHidup.selectedItem.toString().trim()
 
         // Validasi input termasuk validasi RT dan Status
-        if (nama.isEmpty() || nik.isEmpty() || tempatLahir.isEmpty() ||
-            tanggalLahir.isEmpty() || agama == "Pilih Agama" || pekerjaan.isEmpty() ||
-            kelamin == "Pilih Kelamin"|| rt == "Pilih RT" || status == "Pilih Status" || hidup == "Status Hidup") {
+        if (nama.isEmpty() || nik.isEmpty() ||kk.isEmpty() || tempatLahir.isEmpty() ||
+            tanggalLahir.isEmpty() || agama == "Pilih Agama" || pendidikan.isEmpty() || pekerjaan.isEmpty() ||
+            kelamin == "Pilih Kelamin"|| gol == "Pilih Golongan Darah" || ayah.isEmpty() || ibu.isEmpty() ||
+            rt == "Pilih RT" || status == "Pilih Status" || keluarga.isEmpty() || hidup == "Status Hidup") {
             Toast.makeText(requireContext(), "Semua inputan harus diisi!", Toast.LENGTH_SHORT).show()
             return
         }
@@ -140,13 +155,19 @@ class TambahFragment : Fragment() {
             nama = nama,
             alias = alias,
             nik = nik,
+            kk = kk,
             tempat_lahir = tempatLahir,
             tanggal_lahir = tanggalLahir,
             agama = agama,
+            pendidikan = pendidikan,
             pekerjaan = pekerjaan,
             kelamin = kelamin,
+            gol_darah = gol,
+            ayah = ayah,
+            ibu = ibu,
             rt = rt,
             status = status,
+            keluarga = keluarga,
             hidup = hidup
         )
 

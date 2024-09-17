@@ -68,13 +68,19 @@ class Detail1Fragment : Fragment() {
         binding.dNama.text = penduduk.nama
         binding.dAlias.text = penduduk.alias
         binding.dNik.text = penduduk.nik
+        binding.dNokk.text = penduduk.kk
         binding.dTempat.text = penduduk.tempat_lahir
         binding.dTgl.text = penduduk.tanggal_lahir
         binding.dAgm.text = penduduk.agama
+        binding.dPendidikan.text = penduduk.pendidikan
         binding.dPekerjaan.text = penduduk.pekerjaan
         binding.dkelamin.text = penduduk.kelamin
+        binding.dgol.text = penduduk.gol_darah
+        binding.dAyah.text = penduduk.ayah
+        binding.dIbu.text = penduduk.ibu
         binding.dRT.text = penduduk.rt
         binding.dStatus.text = penduduk.status
+        binding.dKeluarga.text = penduduk.keluarga
         binding.dHidup.text = penduduk.hidup
 
 

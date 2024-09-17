@@ -41,4 +41,13 @@
 
     </string-array>
 
+    <string-array name="gol_options">
+        <item>Pilih Golongan Darah</item>
+        <item>O</item>
+        <item>A</item>
+        <item>B</item>
+        <item>AB</item>
+
+    </string-array>
+
 </resources>
