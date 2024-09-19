@@ -59,8 +59,8 @@ class TambahFragment : Fragment() {
             // Tampilkan DatePickerDialog
             datePickerDialog.show()
         }
-        // Inisialisasi Spinner
 
+        // Inisialisasi Spinner
         val agamaAdapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.agama_options,
@@ -113,7 +113,6 @@ class TambahFragment : Fragment() {
             tambahPenduduk()
 
         }
-
 
     }
     private fun tambahPenduduk() {
@@ -190,13 +189,9 @@ class TambahFragment : Fragment() {
                     Toast.makeText(requireContext(), "Data berhasil ditambahkan!", Toast.LENGTH_SHORT).show()
                 }
             }
-//
-//            findNavController().navigate(R.id.action_tambahFragment_to_navigationParentFragment)
-//            Toast.makeText(requireContext(), "Data berhasil ditambahkan!", Toast.LENGTH_SHORT).show()
 
         }
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

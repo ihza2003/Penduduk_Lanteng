@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.penduduk_lanteng.DB.AppDatabase
 import com.example.penduduk_lanteng.DB.entity.Penduduk
@@ -17,6 +18,9 @@ import com.example.penduduk_lanteng.R
 import com.example.penduduk_lanteng.data.data1.PendudukViewModel
 import com.example.penduduk_lanteng.data.data1.PendudukViewModelFactory
 import com.example.penduduk_lanteng.databinding.FragmentEditBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.Calendar
 
 class EditFragment : Fragment() {
@@ -143,10 +147,13 @@ class EditFragment : Fragment() {
         binding.EditNoKK.setText(penduduk.kk)
         binding.EditTmpt.setText(penduduk.tempat_lahir)
         binding.EditTgl.setText(penduduk.tanggal_lahir)
+
         val agamaIndex = agamaAdapter.getPosition(penduduk.agama)
         binding.EditAgm.setSelection(agamaIndex)
+
         binding.EditPendidikan.setText(penduduk.pendidikan)
         binding.EditPekerjaan.setText(penduduk.pekerjaan)
+
         // Set Spinner values
         val kelaminIndex = kelaminAdapter.getPosition(penduduk.kelamin)
         binding.EditKelamin.setSelection(kelaminIndex)
@@ -167,12 +174,11 @@ class EditFragment : Fragment() {
 
         val hidupIndex = hidupAdapter.getPosition(penduduk.hidup)
         binding.EditHidup.setSelection(hidupIndex)
+
     }
 
-    
 
     private fun saveChanges() {
-
         val nama = binding.EditNama.text.toString().trim()
         val alias =binding.EditAlias.text.toString().trim()
         val nik = binding.EditNIK.text.toString().trim()
@@ -205,33 +211,52 @@ class EditFragment : Fragment() {
             return
         }
 
-        // Mengubah data penduduk
-        val updatedPenduduk = Penduduk(
-            penduduk.id,
-            nama ,
-            alias,
-            nik,
-            kk,
-            tempat,
-            tanggal,
-            agama,
-            pendidikan,
-            pekerjaan,
-            kelamin,
-            gol_darah,
-            ayah,
-            ibu,
-            rt,
-            status,
-            keluarga,
-            hidup
-        )
+        // Lakukan pengecekan NIK di database
+        lifecycleScope.launch {
+            withContext(Dispatchers.IO) {
+                val db = AppDatabase.getInstance(requireContext())
+                val existingPenduduk = db?.pendudukDao()?.getPendudukByNik(nik)
 
-        viewModel.updatePenduduk(updatedPenduduk)
+                // Jika NIK sudah ada dan bukan milik penduduk yang sedang diedit
+                if (existingPenduduk != null && existingPenduduk.id != pendudukId) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(requireContext(), "Data Penduduk dengan NIK ini sudah ada!", Toast.LENGTH_SHORT).show()
+                    }
+                    return@withContext
+                }
 
-        // Navigasi kembali ke Detail1Fragment
-        findNavController().popBackStack()
-        Toast.makeText(requireContext(), "Data berhasil di Edit!", Toast.LENGTH_SHORT).show()
+                // Mengubah data penduduk
+                val updatedPenduduk = Penduduk(
+                    penduduk.id,
+                    nama,
+                    alias,
+                    nik,
+                    kk,
+                    tempat,
+                    tanggal,
+                    agama,
+                    pendidikan,
+                    pekerjaan,
+                    kelamin,
+                    gol_darah,
+                    ayah,
+                    ibu,
+                    rt,
+                    status,
+                    keluarga,
+                    hidup
+                )
+
+                // Simpan perubahan ke database
+                db?.pendudukDao()?.updatePenduduk(updatedPenduduk)
+
+                withContext(Dispatchers.Main) {
+                    // Navigasi kembali ke Detail1Fragment
+                    findNavController().popBackStack()
+                    Toast.makeText(requireContext(), "Data berhasil di Edit!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {

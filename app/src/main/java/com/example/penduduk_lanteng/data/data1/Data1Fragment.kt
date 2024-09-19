@@ -44,8 +44,6 @@ class Data1Fragment : Fragment(), PendudukAdapter.OnItemClickListener {
         // Observasi data dari ViewModel
         pendudukViewModel.getPendudukByRT("1").observe(viewLifecycleOwner, { pendudukList ->
             adapter.setPendudukData(pendudukList)
-
-            
         })
 
         // Tombol pencarian

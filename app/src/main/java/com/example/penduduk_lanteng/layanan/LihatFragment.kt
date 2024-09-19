@@ -141,7 +141,7 @@ class LihatFragment : Fragment() {
                 dataFormat = workbook.createDataFormat().getFormat("0") // Format angka
             }
 
-    // Membuat Cell Style untuk format tanggal
+            // Membuat Cell Style untuk format tanggal
             val dateCellStyle = workbook.createCellStyle().apply {
                 val creationHelper = workbook.creationHelper
                 dataFormat = creationHelper.createDataFormat().getFormat("dd/MM/yyyy")
@@ -337,11 +337,14 @@ class LihatFragment : Fragment() {
 
                 // Ambil nilai NIK dan Nama, pastikan tidak null atau kosong
                 val nik = row.getCell(0)?.stringCellValue ?: continue // Skip row jika NIK kosong
+
                 val kk = row.getCell(1)?.stringCellValue ?: ""
+
                 val nama = row.getCell(2)?.stringCellValue ?: continue // Skip row jika Nama kosong
 
                 // Ambil nilai kolom lainnya, isi dengan default value jika kosong
                 val alias = row.getCell(3)?.stringCellValue ?: "" // Alias kosong jika null
+
                 val tempatLahir = row.getCell(4)?.stringCellValue ?: "" // Tempat lahir kosong jika null
 
                 // Cek apakah cell adalah tipe Date
@@ -353,8 +356,11 @@ class LihatFragment : Fragment() {
                 }
 
                 val agama = row.getCell(6)?.stringCellValue ?: "" // Agama kosong jika null
+
                 val pendidikan = row.getCell(7)?.stringCellValue ?: ""
+
                 val pekerjaan = row.getCell(8)?.stringCellValue ?: "" // Pekerjaan kosong jika null
+
                 val kelamin = row.getCell(9)?.stringCellValue ?: "" // Kelamin kosong jika null
 
                 val gol = row.getCell(10)?.stringCellValue?: "" // Golongan darah kosong jika null
@@ -371,7 +377,9 @@ class LihatFragment : Fragment() {
                 }
 
                 val status = row.getCell(14)?.stringCellValue ?: "" // Status kosong jika null
+
                 val keluarga = row.getCell(15)?.stringCellValue?: "" // Keluarga kosong jika null
+
                 val hidup = row.getCell(16)?.stringCellValue ?: "" // Hidup kosong jika null
 
                 // Buat objek Penduduk dari data yang dibaca

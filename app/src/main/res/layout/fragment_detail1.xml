@@ -478,8 +478,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edit" />
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    app:layout_constraintTop_toBottomOf="@+id/Hapus"
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    >
+
+                </RelativeLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
