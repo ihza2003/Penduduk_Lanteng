@@ -85,8 +85,12 @@ class LihatFragment : Fragment() {
                 arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                 1
             )
+        } else {
+            // Jika izin sudah diberikan, lanjutkan dengan operasi ekspor
+            exportToDownloads()
         }
     }
+
 
     private fun exportToDownloads() {
         lifecycleScope.launch {
