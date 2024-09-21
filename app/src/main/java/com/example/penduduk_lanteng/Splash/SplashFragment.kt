@@ -24,7 +24,14 @@ class SplashFragment : Fragment() {
     ): View? {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
         Handler(Looper.getMainLooper()).postDelayed({
-            findNavController().navigate(R.id.action_splashFragment_to_navigationParentFragment2)
+            findNavController().navigate(
+                R.id.action_splashFragment_to_navigationParentFragment2,
+                null,
+                androidx.navigation.NavOptions.Builder()
+                    .setPopUpTo(R.id.splashFragment, true) // Menghapus SplashFragment dari back stack
+                    .build()
+            )
+
         }, 4000)
         return binding.root
     }
